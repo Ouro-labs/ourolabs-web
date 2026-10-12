@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#fff;color:#222;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#1b4f9c;text-decoration:none}
+a:hover{color:#123b7a;text-decoration:underline}
+button{font:inherit}
+table{border-collapse:collapse}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#fff;color:#222;font-family:'Pretendard Variable',Pretendard,'Noto Sans KR','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.85;text-wrap:pretty">
+
+  <header style="position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid #e3e3e3">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="#/" style="display:flex;flex-direction:column;line-height:1.15;color:#111;text-decoration:none" style-hover="text-decoration:none">
+        <span style="font-weight:800;font-size:21px;letter-spacing:0.14em;color:#111">OURO LABS</span>
+      </a>
+      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+        <nav onMouseLeave="{{ navLeave }}" style="display:flex;align-items:center;font-size:14px;font-weight:600">
+          <sc-for list="{{ nav }}" as="n" hint-placeholder-count="12">
+            <div onMouseEnter="{{ n.enter }}" style="position:relative">
+              <a href="{{ n.href }}" style="display:block;padding:24px 8px 21px;color:{{ n.color }};text-decoration:none;border-bottom:3px solid {{ n.line }}" style-hover="color:#1b4f9c;text-decoration:none">{{ n.label }}</a>
+              <sc-if value="{{ n.open }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;left:0;top:100%;min-width:240px;background:#fff;border:1px solid #e3e3e3;border-top:3px solid #1b4f9c;box-shadow:0 10px 28px rgba(0,0,0,0.10);padding:6px 0;z-index:50">
+                  <sc-for list="{{ n.children }}" as="c" hint-placeholder-count="2">
+                    <a href="{{ c.href }}" onClick="{{ navLeave }}" style="display:block;padding:10px 18px;color:#222;font-weight:500;text-decoration:none" style-hover="background:#f2f6fb;color:#1b4f9c;text-decoration:none">{{ c.label }}</a>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+          <div style="display:flex;align-items:center;gap:6px;margin-left:14px;padding-left:14px;border-left:1px solid #e3e3e3;font-size:13px;letter-spacing:0.06em">
+            <button onClick="{{ setKo }}" style="background:transparent;border:0;padding:4px 2px;cursor:pointer;color:{{ koColor }};font-weight:{{ koWeight }}">KO</button>
+            <span style="color:#bbb">|</span>
+            <button onClick="{{ setEn }}" style="background:transparent;border:0;padding:4px 2px;cursor:pointer;color:{{ enColor }};font-weight:{{ enWeight }}">EN</button>
+          </div>
+        </nav>
+      </sc-if>
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:10px">
+          <button onClick="{{ toggleLang }}" style="background:transparent;border:1px solid #1b4f9c;padding:5px 12px;font-size:13px;cursor:pointer;color:#1b4f9c;font-weight:700;letter-spacing:0.06em">{{ langOther }}</button>
+          <button onClick="{{ toggleMenu }}" style="background:#1b4f9c;color:#fff;border:0;padding:6px 14px;font-size:13px;cursor:pointer;font-weight:600">{{ menuLabel }}</button>
+        </div>
+      </sc-if>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid #e3e3e3;background:#fff;max-height:70vh;overflow:auto">
+        <sc-for list="{{ nav }}" as="m" hint-placeholder-count="12">
+          <div style="border-bottom:1px solid #eee">
+            <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="display:block;padding:12px 24px;color:{{ m.color }};font-weight:600;text-decoration:none">{{ m.label }}</a>
+            <sc-for list="{{ m.children }}" as="mc" hint-placeholder-count="0">
+              <a href="{{ mc.href }}" onClick="{{ closeMenu }}" style="display:block;padding:8px 24px 8px 40px;color:#444;font-size:14px;text-decoration:none">› {{ mc.label }}</a>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <section style="background:#f4f6f9;border-bottom:1px solid #e3e3e3">
+      <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+        <figure style="margin:0;padding:28px 0 24px;display:flex;align-items:center;justify-content:center">
+          <img src="{{ heroImg }}" alt="{{ heroAlt }}" style="display:block;width:100%;max-width:1080px;height:auto">
+        </figure>
+      </div>
+    </section>
+    <section style="max-width:1000px;margin:0 auto;padding:64px 24px 0;text-align:center">
+      <h1 style="margin:0 0 20px;font-size:clamp(26px,3.4vw,40px);font-weight:800;line-height:1.35;color:#111;letter-spacing:-0.01em">{{ heroTitle }}</h1>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ notHome }}" hint-placeholder-val="{{ false }}">
+    <section style="background:#f4f6f9;border-bottom:1px solid #e3e3e3">
+      <div style="max-width:1200px;margin:0 auto;padding:40px 24px 44px">
+        <div style="display:flex;flex-wrap:wrap;gap:6px;font-size:12.5px;color:#666;margin-bottom:18px">
+          <a href="#/" style="color:#666">Home</a>
+          <sc-for list="{{ crumbs }}" as="cr" hint-placeholder-count="1">
+            <span style="display:flex;gap:6px"><span style="color:#aaa">›</span><a href="{{ cr.href }}" style="color:#666">{{ cr.label }}</a></span>
+          </sc-for>
+          <span style="color:#aaa">›</span><span style="color:#111;font-weight:500">{{ pageTitle }}</span>
+        </div>
+        <p style="margin:0 0 8px;font-size:12.5px;letter-spacing:0.18em;font-weight:700;color:#1b4f9c">{{ pageEyebrow }}</p>
+        <h1 style="margin:0 0 14px;font-size:clamp(28px,3.4vw,42px);font-weight:800;line-height:1.3;color:#111;letter-spacing:-0.01em">{{ pageTitle }}</h1>
+        <p style="margin:0;max-width:46em;color:#333">{{ pageLead }}</p>
+        <sc-if value="{{ hasStatus }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid #d5dde8;padding:10px 16px;font-size:14px;color:#333"><span style="width:8px;height:8px;border-radius:50%;background:#c9a227;display:inline-block"></span>{{ pageStatus }}</div>
+        </sc-if>
+      </div>
+    </section>
+    <sc-if value="{{ showTabs }}" hint-placeholder-val="{{ false }}">
+      <div style="border-bottom:1px solid #e3e3e3">
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:0 28px;font-size:14px;font-weight:600">
+          <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="5">
+            <a href="{{ tb.href }}" style="padding:14px 0 12px;border-bottom:3px solid {{ tb.line }};color:{{ tb.color }};text-decoration:none;margin-bottom:-1px" style-hover="color:#1b4f9c;text-decoration:none">{{ tb.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ showAnchors }}" hint-placeholder-val="{{ false }}">
+      <div style="border-bottom:1px solid #e3e3e3;background:#fff;position:sticky;top:72px;z-index:30">
+        <div style="max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ anchors }}" as="an" hint-placeholder-count="6">
+            <a href="{{ an.href }}" onClick="{{ an.go }}" style="border:1px solid #1b4f9c;color:#1b4f9c;border-radius:999px;padding:5px 15px;font-size:13px;font-weight:600;text-decoration:none" style-hover="background:#1b4f9c;color:#fff;text-decoration:none">{{ an.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+  </sc-if>
+
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:{{ shellDisplay }};grid-template-columns:220px minmax(0,1fr);gap:56px;align-items:start">
+  <sc-if value="{{ showSide }}" hint-placeholder-val="{{ false }}">
+    <aside style="position:sticky;top:72px;padding:52px 0 32px;max-height:calc(100vh - 72px);overflow-y:auto">
+      <p style="margin:0 0 10px;font-size:12.5px;letter-spacing:0.08em;font-weight:700;color:#1b4f9c">{{ sideTitle }}</p>
+      <nav style="border-top:2px solid #1b4f9c">
+        <sc-for list="{{ side }}" as="sd" hint-placeholder-count="5">
+          <div style="border-bottom:1px solid #e3e3e3">
+            <sc-if value="{{ sd.showRow }}" hint-placeholder-val="{{ true }}">
+              <a href="{{ sd.href }}" style="display:block;padding:11px 4px;font-size:15px;line-height:1.5;font-weight:{{ sd.weight }};color:{{ sd.color }};text-decoration:none" style-hover="color:#1b4f9c;text-decoration:none">{{ sd.label }}</a>
+            </sc-if>
+            <sc-if value="{{ sd.hasAnchors }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;padding:{{ sd.anchorPad }}">
+                <sc-for list="{{ sd.anchors }}" as="sa" hint-placeholder-count="4">
+                  <a href="{{ sa.href }}" onClick="{{ sa.go }}" style="display:block;padding:5px 0 5px 12px;border-left:2px solid {{ sa.line }};font-size:13.5px;line-height:1.5;color:{{ sa.color }};font-weight:{{ sa.weight }};text-decoration:none" style-hover="color:#1b4f9c;text-decoration:none">{{ sa.label }}</a>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </nav>
+    </aside>
+  </sc-if>
+  <main style="min-width:0;padding:8px 0 64px">
+    <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="6">
+      <div id="{{ b.id }}" style="scroll-margin-top:140px">
+
+        <sc-if value="{{ b.isH }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:{{ hAlign }};padding:{{ hPad }}">
+            <h2 style="margin:0;font-size:clamp(22px,2.6vw,30px);font-weight:800;line-height:1.4;color:#111">{{ b.text }}</h2>
+            <span style="display:block;width:44px;height:3px;background:#1b4f9c;margin:14px {{ mx }} 0"></span>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isMotto }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:4px {{ mx }} {{ b.mGap }};max-width:860px;font-size:clamp(20px,2.2vw,27px);font-weight:700;line-height:1.55;letter-spacing:-0.01em;color:#1b4f9c;text-align:{{ hAlign }}">{{ b.text }}</p>
+          <sc-if value="{{ b.hasMsub }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0 {{ mx }} 28px;max-width:860px;font-size:clamp(16px,1.6vw,19px);font-weight:600;line-height:1.6;color:#333;text-align:{{ hAlign }}">{{ b.msub }}</p>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ b.isAreas }}" hint-placeholder-val="{{ false }}">
+          <div style="margin:18px 0 24px;border-top:2px solid #1b4f9c">
+            <sc-for list="{{ b.items }}" as="ar" hint-placeholder-count="4">
+              <div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:20px;padding:26px 4px;border-bottom:1px solid #e3e3e3">
+                <div style="font-size:30px;font-weight:300;line-height:1.1;color:#1b4f9c;letter-spacing:-0.02em">{{ ar.n }}</div>
+                <div style="min-width:0">
+                  <h3 style="margin:0;font-size:19px;font-weight:700;line-height:1.45;color:#111">{{ ar.title }}</h3>
+                  <sc-if value="{{ ar.hasSub }}" hint-placeholder-val="{{ false }}">
+                    <p style="margin:3px 0 0;font-size:12.5px;letter-spacing:0.08em;font-weight:600;color:#1b4f9c;text-transform:uppercase">{{ ar.sub }}</p>
+                  </sc-if>
+                  <p style="margin:12px 0 0;font-size:15px;line-height:1.85;color:#444">{{ ar.body }}</p>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0 {{ mx }} 18px;max-width:860px;color:#333;text-indent:{{ pIndent }}">{{ b.text }}</p>
+        </sc-if>
+
+        <sc-if value="{{ b.isNote }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:860px;margin:8px {{ mx }} 18px;background:#f4f6f9;border:1px solid #dfe5ee;padding:14px 18px;font-size:14.5px;color:#444;display:flex;gap:10px"><span style="color:#1b4f9c;font-weight:700">※</span><span>{{ b.text }}</span></div>
+        </sc-if>
+
+        <sc-if value="{{ b.isDiagram }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ b.hasImg }}" hint-placeholder-val="{{ false }}">
+            <figure style="margin:20px {{ mx }} 28px;max-width:960px">
+              <img src="{{ b.img }}" alt="{{ b.text }}" style="display:block;width:100%;height:auto">
+            </figure>
+          </sc-if>
+          <sc-if value="{{ b.noImg }}" hint-placeholder-val="{{ false }}">
+            <figure style="margin:16px {{ mx }} 24px;max-width:960px;border:1px solid #d5dde8;background:repeating-linear-gradient(135deg,#f2f5f9 0 12px,#fff 12px 24px);min-height:260px;display:flex;align-items:center;justify-content:center;padding:28px;text-align:center">
+              <figcaption style="font-size:12.5px;color:#1b4f9c;line-height:1.7;max-width:40em;background:rgba(255,255,255,0.92);padding:12px 18px;border:1px dashed #1b4f9c">{{ b.text }}</figcaption>
+            </figure>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ b.isLinks }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:860px;margin:4px {{ mx }} 20px;display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14.5px;font-weight:600">
+            <sc-for list="{{ b.items }}" as="lk" hint-placeholder-count="2">
+              <a href="{{ lk.href }}">{{ lk.label }} ›</a>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isBtns }}" hint-placeholder-val="{{ false }}">
+          <div style="margin:20px 0 8px;display:flex;flex-wrap:wrap;justify-content:{{ btnJustify }};gap:12px">
+            <sc-for list="{{ b.items }}" as="bt" hint-placeholder-count="2">
+              <a href="{{ bt.href }}" target="{{ bt.target }}" rel="noopener" style="display:inline-block;padding:12px 28px;background:{{ bt.bg }};color:{{ bt.fg }};border:1px solid #1b4f9c;font-size:14.5px;font-weight:600;text-decoration:none;border-radius:999px" style-hover="text-decoration:none;opacity:0.88">{{ bt.label }}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isBullets }}" hint-placeholder-val="{{ false }}">
+          <ul style="max-width:860px;margin:4px {{ mx }} 20px;padding:0 0 0 22px;color:#333">
+            <sc-for list="{{ b.items }}" as="bl" hint-placeholder-count="3">
+              <li style="margin:4px 0">{{ bl.text }}</li>
+            </sc-for>
+          </ul>
+        </sc-if>
+
+        <sc-if value="{{ b.isCards }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax({{ b.min }},1fr));gap:18px;margin:14px 0 20px">
+            <sc-for list="{{ b.items }}" as="c" hint-placeholder-count="3">
+              <div style="background:#fff;border:1px solid #e3e3e3;border-radius:6px;padding:26px 24px;min-width:0;display:flex;flex-direction:column;gap:10px">
+                <h3 style="margin:0;font-size:17px;font-weight:700;line-height:1.5;color:#111">{{ c.title }}</h3>
+                <p style="margin:0;font-size:14.5px;line-height:1.8;color:#555">{{ c.body }}</p>
+                <sc-if value="{{ c.hasMail }}" hint-placeholder-val="{{ false }}">
+                  <p style="margin:0;font-size:14px;color:#1b4f9c;font-weight:600">{{ c.mail }}</p>
+                </sc-if>
+                <sc-if value="{{ c.hasStatus }}" hint-placeholder-val="{{ false }}">
+                  <p style="margin:0;font-size:12.5px;color:#666"><span style="display:inline-block;padding:2px 9px;border:1px solid #d5dde8;border-radius:3px;background:#f4f6f9">{{ c.status }}</span></p>
+                </sc-if>
+                <sc-if value="{{ c.hasLink }}" hint-placeholder-val="{{ false }}">
+                  <a href="{{ c.href }}" target="{{ c.target }}" rel="noopener" style="margin-top:auto;font-size:14px;font-weight:600">{{ c.linkLabel }} ›</a>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isSteps }}" hint-placeholder-val="{{ false }}">
+          <ol style="list-style:none;margin:14px 0 20px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+            <sc-for list="{{ b.items }}" as="st" hint-placeholder-count="5">
+              <li style="background:#fff;border:1px solid #e3e3e3;border-top:4px solid #1b4f9c;padding:16px 16px 18px;min-width:0">
+                <div style="font-size:11.5px;color:#1b4f9c;font-weight:700;letter-spacing:0.12em">STEP {{ st.n }}</div>
+                <div style="font-size:17px;font-weight:700;margin:4px 0 6px;color:#111;line-height:1.4">{{ st.name }}</div>
+                <div style="font-size:13.5px;line-height:1.7;color:#555">{{ st.desc }}</div>
+                <sc-if value="{{ st.hasOut }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:12.5px;line-height:1.6;color:#1b4f9c;margin-top:8px;padding-top:8px;border-top:1px dashed #d5dde8">{{ st.out }}</div>
+                </sc-if>
+              </li>
+            </sc-for>
+          </ol>
+        </sc-if>
+
+        <sc-if value="{{ b.isTable }}" hint-placeholder-val="{{ false }}">
+          <div style="overflow-x:auto;margin:14px 0 20px">
+            <table style="width:100%;min-width:560px;font-size:14.5px;border-top:2px solid #1b4f9c;border-bottom:1px solid #1b4f9c">
+              <thead><tr>
+                <sc-for list="{{ b.head }}" as="th" hint-placeholder-count="3">
+                  <th style="text-align:left;padding:12px 16px;background:#f4f6f9;color:#1b4f9c;font-weight:700;border-bottom:1px solid #dfe5ee;white-space:nowrap">{{ th.text }}</th>
+                </sc-for>
+              </tr></thead>
+              <tbody>
+                <sc-for list="{{ b.rows }}" as="row" hint-placeholder-count="4">
+                  <tr>
+                    <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="3">
+                      <td style="padding:12px 16px;border-bottom:1px solid #eee;vertical-align:top;color:#333;white-space:{{ cell.ws }}">
+                        <sc-if value="{{ cell.isLink }}" hint-placeholder-val="{{ false }}"><a href="{{ cell.href }}" target="{{ cell.target }}" rel="noopener" style="font-weight:600;white-space:nowrap">{{ cell.text }} ›</a></sc-if>
+                        <sc-if value="{{ cell.isText }}" hint-placeholder-val="{{ true }}">{{ cell.text }}</sc-if>
+                      </td>
+                    </sc-for>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isKv }}" hint-placeholder-val="{{ false }}">
+          <dl style="max-width:860px;margin:14px {{ mx }} 20px;border-top:2px solid #1b4f9c;font-size:14.5px">
+            <sc-for list="{{ b.items }}" as="kv" hint-placeholder-count="3">
+              <div style="display:grid;grid-template-columns:minmax(120px,180px) minmax(0,1fr);gap:16px;padding:12px 8px;border-bottom:1px solid #eee">
+                <dt style="font-weight:700;color:#1b4f9c">{{ kv.k }}</dt>
+                <dd style="margin:0;color:#333">{{ kv.v }}</dd>
+              </div>
+            </sc-for>
+          </dl>
+        </sc-if>
+
+        <sc-if value="{{ b.isFaq }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width:860px;margin:14px {{ mx }} 20px;border-top:2px solid #1b4f9c">
+            <sc-for list="{{ b.items }}" as="q" hint-placeholder-count="4">
+              <div style="border-bottom:1px solid #eee">
+                <button onClick="{{ q.toggle }}" style="width:100%;text-align:left;background:transparent;border:0;padding:16px 6px;display:grid;grid-template-columns:28px minmax(0,1fr) 20px;gap:12px;cursor:pointer;color:#111;font-weight:600;line-height:1.6">
+                  <span style="color:#1b4f9c;font-weight:800">Q</span><span>{{ q.q }}</span><span style="color:#999">{{ q.mark }}</span>
+                </button>
+                <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+                  <p style="margin:0;padding:0 46px 18px 46px;color:#555;font-size:15px">{{ q.a }}</p>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isPeople }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px 28px;margin:14px 0 24px">
+            <sc-for list="{{ b.items }}" as="pe" hint-placeholder-count="3">
+              <div style="min-width:0">
+                <div style="aspect-ratio:1/1;background:#eee;overflow:hidden;border-radius:6px">
+                  <sc-if value="{{ pe.hasPhoto }}" hint-placeholder-val="{{ false }}">
+                    <img src="{{ pe.photo }}" alt="{{ pe.name }}" style="width:100%;height:100%;object-fit:cover;display:block">
+                  </sc-if>
+                </div>
+                <h3 style="margin:16px 0 2px;font-size:20px;font-weight:700;line-height:1.3;color:#111">{{ pe.name }}</h3>
+                <p style="margin:0 0 10px;font-size:13px;color:#1b4f9c;font-weight:600">{{ pe.handle }}</p>
+                <p style="margin:0 0 12px;font-size:14.5px;color:#555">{{ pe.note }}</p>
+                <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;font-size:14px">
+                  <sc-for list="{{ pe.links }}" as="lk" hint-placeholder-count="1">
+                    <li><a href="{{ lk.href }}" target="_blank" rel="noopener" style="font-weight:500">› {{ lk.label }}</a></li>
+                  </sc-for>
+                </ul>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ b.isNews }}" hint-placeholder-val="{{ false }}">
+          <ul style="list-style:none;margin:14px 0 20px;padding:0;border-top:2px solid #1b4f9c">
+            <sc-for list="{{ b.items }}" as="nw" hint-placeholder-count="3">
+              <li style="display:grid;grid-template-columns:96px 110px minmax(0,1fr);gap:16px;padding:18px 6px;border-bottom:1px solid #eee;font-size:15px">
+                <span style="color:#666;font-size:13.5px">{{ nw.date }}</span>
+                <span><span style="font-size:11.5px;color:#1b4f9c;border:1px solid #1b4f9c;padding:1px 8px;white-space:nowrap;font-weight:600">{{ nw.type }}</span></span>
+                <span style="min-width:0"><span style="display:block;font-weight:700;color:#111">{{ nw.title }}</span><span style="display:block;font-size:14px;color:#555;margin-top:4px">{{ nw.body }}</span><span style="display:block;font-size:12.5px;color:#888;margin-top:6px">{{ nw.status }}</span></span>
+              </li>
+            </sc-for>
+          </ul>
+        </sc-if>
+
+      </div>
+    </sc-for>
+  </main>
+  </div>
+
+  <footer style="background:#1c2733;color:#c5ccd6;margin-top:24px">
+    <div style="max-width:1200px;margin:0 auto;padding:44px 24px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px;font-size:14px">
+      <div>
+        <div style="font-weight:800;font-size:18px;letter-spacing:0.14em;color:#fff;margin-bottom:10px">OURO LABS</div>
+        <p style="margin:0;max-width:28em;line-height:1.8">{{ footerLine }}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px">
+        <sc-for list="{{ nav }}" as="fn" hint-placeholder-count="12">
+          <a href="{{ fn.href }}" style="color:#c5ccd6" style-hover="color:#fff">{{ fn.label }}</a>
+        </sc-for>
+      </div>
+      <div>
+        <button onClick="{{ toggleLang }}" style="background:transparent;border:1px solid #6d7a8a;color:#fff;padding:5px 12px;cursor:pointer;font-size:13px;letter-spacing:0.06em">{{ footerLangSwitch }}</button>
+        <p style="margin:18px 0 0;font-size:12.5px;color:#8a95a3">Copyright © OURO LABS. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ko&quot;,&quot;en&quot;],&quot;default&quot;:&quot;ko&quot;,&quot;tsType&quot;:&quot;'ko' | 'en'&quot;,&quot;section&quot;:&quot;Site&quot;}}">
+class Component extends DCLogic {
+  state = { lang: 'ko', route: '/', wide: true, menuOpen: false, openNav: null, openFaq: {}, data: null, spy: null };
+
+  componentDidMount() {
+    let saved = null; try { saved = localStorage.getItem('ouro-lang'); } catch (e) {}
+    this._onHash = () => {
+      const r = this.readRoute();
+      const anchor = (location.hash.split('@')[1] || '');
+      this.setState({ route: r, menuOpen: false, openNav: null, spy: null }, () => {
+        if (anchor) setTimeout(() => this.scrollToId(anchor), 60); else window.scrollTo({ top: 0 });
+      });
+    };
+    this._onResize = () => this.setState({ wide: window.innerWidth >= 1100 });
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = null;
+        const d = this.state.data;
+        const page = d && d.PAGES[this.state.route];
+        if (!page || page.home) return;
+        let cur = null;
+        for (const [id] of this.tocOf(page)) { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 180) cur = id; }
+        if (cur !== this.state.spy) this.setState({ spy: cur });
+      });
+    };
+    window.addEventListener('hashchange', this._onHash);
+    window.addEventListener('resize', this._onResize);
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this.setState({ lang: saved || this.props.defaultLang || 'ko', route: this.readRoute(), wide: window.innerWidth >= 1100 });
+    import('./content.js').then((m) => { this.setState({ data: m }, () => { const a = location.hash.split('@')[1]; if (a) setTimeout(() => this.scrollToId(a), 150); }); });
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this._onHash); window.removeEventListener('resize', this._onResize); window.removeEventListener('scroll', this._onScroll); }
+  tocOf(page) {
+    if (page.toc && page.toc.length) return page.toc;
+    return (page.blocks || []).map((b, i) => (b.t === 'h' ? [b.id || ('b' + i), b.text] : null)).filter(Boolean);
+  }
+  readRoute() { let h = (location.hash || '#/').replace(/^#/, '').split('@')[0]; if (h === '/endowed' || h === 'endowed') { history.replaceState(null, '', '#/seed@support'); h = '/seed'; } return h.startsWith('/') ? h : '/' + h; }
+  setLang(lang) { try { localStorage.setItem('ouro-lang', lang); } catch (e) {} this.setState({ lang }); }
+  scrollToId(id, tries) {
+    const el = document.getElementById(id);
+    if (!el) { if ((tries || 0) < 20) setTimeout(() => this.scrollToId(id, (tries || 0) + 1), 100); return; }
+    window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 130);
+  }
+
+  renderVals() {
+    const { lang, route, wide, menuOpen, openNav, openFaq, data, spy } = this.state;
+    const ko = lang === 'ko';
+    const T = (v) => Array.isArray(v) ? (ko ? v[0] : v[1]) : (v == null ? '' : String(v));
+    const NAV = data ? data.NAV : [];
+    const PAGES = data ? data.PAGES : {};
+    const page = PAGES[route] || PAGES['/'] || { blocks: [] };
+    const isHome = !!page.home;
+    const top = '/' + (route.split('/')[1] || '');
+    const topOf = (p) => (p === '/seed' ? '/education' : p);
+
+    const nav = NAV.map((n) => {
+      const active = topOf(top) === n.path;
+      return { href: '#' + n.path, label: T(n.label), color: active ? '#1b4f9c' : '#222', line: active ? '#1b4f9c' : 'transparent',
+        open: openNav === n.path && !!n.children, children: (n.children || []).map(([p, l]) => ({ href: '#' + p, label: T(l) })),
+        enter: () => this.setState({ openNav: n.children ? n.path : null }) };
+    });
+
+    const eduTabs = [['/education', ['교육 개요', 'Overview']], ['/seed', 'OOO Seed'], ['/education/advanced', ['전문·심화 강좌', 'Advanced Courses']], ['/education/corporate', ['기업·사회인 교육', 'Corporate & Professional']], ['/education/startup', ['창업·경영 교육', 'Startup & Management']]];
+    const tabs = page.tabs === 'edu' ? eduTabs.map(([p, l]) => ({ href: '#' + p, label: T(l), line: route === p ? '#1b4f9c' : 'transparent', color: route === p ? '#1b4f9c' : '#444' })) : [];
+
+    const anchors = (page.toc || []).map(([id, label]) => ({ href: '#' + route + '@' + id, label: T(label), go: (e) => { e.preventDefault(); history.replaceState(null, '', '#' + route + '@' + id); this.scrollToId(id); } }));
+
+    const section = topOf(top);
+    const navItem = NAV.find((n) => n.path === section);
+    const joinPages = [['/join', PAGES['/join'] ? PAGES['/join'].title : ''], ['/join/connect', PAGES['/join/connect'] ? PAGES['/join/connect'].title : '']];
+    const sectionPages = section === '/education' ? eduTabs : (section === '/join' ? joinPages : null);
+    const toc = this.tocOf(page);
+    const showSide = wide && !isHome && !!data && (!!sectionPages || toc.length > 0);
+    const spyId = spy || (toc[0] ? toc[0][0] : null);
+    const sideAnchors = toc.map(([id, label]) => ({ href: '#' + route + '@' + id, label: T(label), line: id === spyId ? '#1b4f9c' : '#e3e3e3', color: id === spyId ? '#1b4f9c' : '#555', weight: id === spyId ? 700 : 500, go: (e) => { e.preventDefault(); history.replaceState(null, '', '#' + route + '@' + id); this.setState({ spy: id }); this.scrollToId(id); } }));
+    const side = sectionPages
+      ? sectionPages.map(([p, l]) => { const cur = p === route; return { showRow: true, href: '#' + p, label: T(l), weight: cur ? 800 : 500, color: cur ? '#111' : '#444', hasAnchors: cur && sideAnchors.length > 0, anchors: cur ? sideAnchors : [], anchorPad: '0 0 14px 4px' }; })
+      : [{ showRow: false, href: '#' + route, label: '', weight: 500, color: '#444', hasAnchors: sideAnchors.length > 0, anchors: sideAnchors, anchorPad: '12px 0 14px 4px' }];
+
+    const crumbs = [];
+    if (route.startsWith('/education/') || route === '/seed') crumbs.push({ href: '#/education', label: T(['교육', 'Education']) });
+    if (route === '/join/connect') crumbs.push({ href: '#/join', label: T(['참여 경로', 'Join']) });
+
+    const blocks = (page.blocks || []).map((b, i) => {
+      const o = { id: b.id || ('b' + i), isH: b.t === 'h', isMotto: b.t === 'motto', isAreas: b.t === 'areas', isP: b.t === 'p', isNote: b.t === 'note', isDiagram: b.t === 'diagram', isLinks: b.t === 'links', isBtns: b.t === 'btns', isBullets: b.t === 'bullets', isCards: b.t === 'cards', isSteps: b.t === 'steps', isTable: b.t === 'table', isKv: b.t === 'kv', isFaq: b.t === 'faq', isPeople: b.t === 'people', isNews: b.t === 'news', text: T(b.text), items: [], head: [], rows: [], min: '250px' };
+      if (b.t === 'links') o.items = b.items.map((l) => ({ label: T(l.label), href: l.href }));
+      if (b.t === 'btns') o.items = b.items.map((l) => ({ label: T(l.label), href: l.href, target: l.ext ? '_blank' : '_self', bg: l.primary ? '#1b4f9c' : '#fff', fg: l.primary ? '#fff' : '#1b4f9c' }));
+      if (b.t === 'bullets') o.items = b.items.map((x) => ({ text: T(x) }));
+      if (b.t === 'cards') { o.min = b.cols === 2 ? '320px' : '250px'; o.items = b.items.map((c) => ({ title: T(c.title), body: T(c.body), hasMail: !!c.mail, mail: c.mail || '', hasStatus: !!c.status, status: T(c.status), hasLink: !!c.link, href: c.link ? c.link.href : '#', target: c.link && c.link.ext ? '_blank' : '_self', linkLabel: c.link ? T(c.link.label) : '' })); }
+      if (b.t === 'steps') o.items = b.items.map((s, k) => ({ n: String(k + 1).padStart(2, '0'), name: T(s.name), desc: T(s.desc), hasOut: !!s.out, out: T(s.out) }));
+      if (b.t === 'table') { o.head = b.head.map((h) => ({ text: T(h) })); o.rows = b.rows.map((r) => ({ cells: r.map((c, ci) => (c && typeof c === 'object' && !Array.isArray(c) && c.href) ? { isLink: true, isText: false, text: T(c.label), href: c.href, target: /^https?:/.test(c.href) ? '_blank' : '_self', ws: (b.nowrap || []).includes(ci) ? 'nowrap' : 'normal' } : { isLink: false, isText: true, text: T(c), href: '#', target: '_self', ws: (b.nowrap || []).includes(ci) ? 'nowrap' : 'normal' }) })); }
+      if (b.t === 'areas') o.items = b.items.map((a, k) => ({ n: String(k + 1).padStart(2, '0'), title: T(a.title), hasSub: ko && Array.isArray(a.title), sub: Array.isArray(a.title) ? a.title[1] : '', body: T(a.body) }));
+      if (b.t === 'motto') { o.msub = T(b.sub); o.hasMsub = !!b.sub; o.mGap = b.sub ? '6px' : '28px'; }
+      if (b.t === 'diagram') { o.hasImg = !!b.img; o.noImg = !b.img; o.img = b.img ? b.img + (ko ? '-ko.svg' : '-en.svg') : ''; }
+      if (b.t === 'kv') o.items = b.items.map(([k, v]) => ({ k: T(k), v: T(v) }));
+      if (b.t === 'faq') o.items = b.items.map((q, k) => { const key = route + k; const open = !!openFaq[key]; return { q: T(q.q), a: T(q.a), open, mark: open ? '−' : '+', toggle: () => this.setState((s) => ({ openFaq: Object.assign({}, s.openFaq, { [key]: !s.openFaq[key] }) })) }; });
+      if (b.t === 'people') o.items = b.items.map((p) => ({ name: T(p.name), handle: p.handle, photo: p.photo, note: T(p.note), hasPhoto: !!p.photo, links: p.links.map(([label, href]) => ({ label, href })) }));
+      if (b.t === 'news') o.items = b.items.map((n) => ({ type: T(n.type), date: n.date, title: T(n.title), body: T(n.body), status: T(n.status) }));
+      return o;
+    });
+
+    return {
+      wide, narrow: !wide, menuOpen, nav,
+      navLeave: () => this.setState({ openNav: null }),
+      setKo: () => this.setLang('ko'), setEn: () => this.setLang('en'),
+      koColor: ko ? '#1b4f9c' : '#999', enColor: ko ? '#999' : '#1b4f9c', koWeight: ko ? 800 : 500, enWeight: ko ? 500 : 800,
+      toggleLang: () => this.setLang(ko ? 'en' : 'ko'), langOther: ko ? 'EN' : 'KO',
+      toggleMenu: () => this.setState({ menuOpen: !menuOpen }), closeMenu: () => this.setState({ menuOpen: false }),
+      menuLabel: menuOpen ? (ko ? '닫기' : 'Close') : (ko ? '메뉴' : 'Menu'),
+      isHome, notHome: !isHome,
+      heroTitle: T(['아우로랩스 (Ouro Labs)', 'OURO LABS']),
+      heroImg: ko ? 'diagrams/cycle-hero-ko.svg' : 'diagrams/cycle-hero-en.svg',
+      heroAlt: T(['연구 → 교육 → 산학협력 → 창업 → 투자, 그리고 다시 연구로 돌아오는 아우로랩스의 활동 순환', 'The OURO LABS cycle: research → education → industry → startups → ventures, and back to research']),
+      pageEyebrow: page.eyebrow || '', pageTitle: T(page.title), pageLead: T(page.lead), hasStatus: !!page.status, pageStatus: T(page.status),
+      crumbs, tabs, anchors, blocks,
+      showTabs: !showSide && tabs.length > 0, showAnchors: !showSide && anchors.length > 0,
+      showSide, side, sideTitle: navItem ? T(navItem.label) : '',
+      shellDisplay: showSide ? 'grid' : 'block',
+      pIndent: page.indent ? '1em' : '0',
+      mx: isHome ? 'auto' : '0', hAlign: isHome ? 'center' : 'left', hPad: isHome ? '64px 0 28px' : '52px 0 22px', btnJustify: isHome ? 'center' : 'flex-start',
+      footerLine: T(['아우로랩스는 AI의 본질을 연구합니다.', 'OURO LABS studies the nature of AI.']),
+      footerLangSwitch: ko ? 'English' : '한국어'
+    };
+  }
+}
+</script>
+</body>
+</html>
