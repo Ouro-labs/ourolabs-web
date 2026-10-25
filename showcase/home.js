@@ -6,7 +6,7 @@ import { feed, tile, hrefOf } from './board.js';
 import { heroFx } from './herofx.js';
 
 function hero(route) {
-  return '<section class="hero hero--home"><div class="field field--img"></div>' + heroFx() + '<div class="wrap"><h1 class="hero__h1" tabindex="-1">' + text(route, 0) + '</h1></div><div class="wrap hero__foot"><p>' + text(route, 1) + '</p></div></section>';
+  return '<section class="hero hero--home"><div class="field field--img"></div>' + heroFx() + '<div class="wrap"><h1 class="hero__h1" tabindex="-1">' + text(route, 0).replace(/,\s+/, ',<br>') + '</h1></div><div class="wrap hero__foot"><p>' + text(route, 1) + '</p></div></section>';
 }
 
 function work() {
