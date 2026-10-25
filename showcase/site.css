@@ -56,3 +56,6 @@ img.is-doc{object-fit:contain!important;background:var(--paper,#fff);padding:5%;
 .rprog__img{aspect-ratio:4/3;align-self:start}
 .rprog__img:has(img.is-doc){aspect-ratio:auto;border:1px solid var(--line)}
 .rprog__img img.is-doc{height:auto;display:block}
+
+/* Source links on detail pages: comfortable touch targets */
+.bd__sources a{display:inline-flex;align-items:center;min-height:44px}
