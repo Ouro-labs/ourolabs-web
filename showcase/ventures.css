@@ -1,0 +1,83 @@
+.venture-hero__heading{display:flex;align-items:center;gap:24px;margin:24px 0 32px}
+.venture-hero__heading h1{margin:0}
+.chero .venture-hero__heading{justify-content:center}
+.venture-hero.lhero .lead{max-width:64ch;text-align:left;margin:0;font-size:var(--t-lead)}
+.venture-hero.lhero:has(.venture-current) .lead{color:var(--muted);margin-top:24px}
+.venture-current{max-width:56ch;font-size:var(--t-h4);line-height:1.6;color:var(--fg-2)}
+.venture-strip{padding-top:32px}
+.venture-section-heading{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.venture-cells .ico{color:var(--fg-2);width:80px}
+.venture-cells .cell{min-width:0}
+.venture-cells .cell p{font-size:var(--t-body);max-width:32ch}
+.venture-table .orow--head,.venture-phases .orow--head{grid-template-columns:minmax(260px,.42fr) 1fr;color:var(--muted);font-size:var(--t-small);gap:clamp(24px,4vw,64px)}
+.venture-table .row__t{font-weight:500}
+.venture-table .row p{font-size:var(--t-body)}
+.venture-phases .phase__img{margin-top:0;margin-bottom:0}
+.venture-phases .phase__box h3{margin-bottom:32px}
+.venture-phases .phase__box>i{width:16px;height:16px;background:var(--fg)}
+.venture-phases .phase__box>i:nth-of-type(1){left:-16px;top:-16px}
+.venture-phases .phase__box>i:nth-of-type(2){right:-16px;top:-16px}
+.venture-phases .phase__box>i:nth-of-type(3){left:-16px;bottom:-16px}
+.venture-phases .phase__box>i:nth-of-type(4){right:-16px;bottom:-16px}
+main[data-route="/ventures"] :is(#unit,#fund)>.wrap{display:grid;grid-template-columns:minmax(260px,.42fr) 1fr;gap:clamp(32px,5vw,80px)}
+main[data-route="/ventures"] :is(#unit,#fund) .venture-section-heading{align-content:start}
+main[data-route="/ventures"] :is(#unit,#fund) .lead{margin:0}
+main[data-route="/join"] .sec[id]>.wrap{display:grid;grid-template-columns:minmax(240px,.32fr) 1fr;column-gap:clamp(32px,5vw,80px);align-items:start}
+main[data-route="/join"] .sec[id]>.wrap>.h2{grid-column:1;grid-row:1;margin:0}
+main[data-route="/join"] .sec[id]>.wrap>:not(.h2){grid-column:2}
+main[data-route="/join"] .sec[id] .table-block{margin-top:0}
+.venture-join-table .olist{margin-top:0}
+.venture-join-table .orow{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+.venture-join-table [aria-colcount="3"] .orow{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) minmax(100px,.55fr)}
+.venture-join-table [role="cell"]{min-width:0;color:var(--fg-2)}
+.venture-join-table [role="cell"]:first-child{font-weight:500;color:var(--fg)}
+.venture-join-table .status{display:table;margin-top:12px;white-space:normal}
+.venture-join-table .inline{white-space:normal;display:inline-flex;align-items:center;min-height:44px}
+.venture-contacts{gap:24px}
+.venture-contacts .duo__card{padding:32px;border-radius:0!important}
+.venture-contacts .ico{width:56px;margin-bottom:32px;color:var(--fg-2)}
+.venture-contacts .duo__card h3{font-size:var(--t-h4);line-height:1.35;margin-bottom:20px}
+.venture-contacts .duo__card p{font-size:var(--t-body)}
+.venture-contact-channel{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+.venture-contact-channel p{margin:0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+main:is([data-route="/startups"],[data-route="/ventures"],[data-route="/join"],[data-route="/join/connect"]) .note{border:1px solid var(--line);border-left:1px solid var(--line);background:var(--surface)}
+@media(max-width:1100px){
+  .venture-cells{grid-template-columns:repeat(2,minmax(0,1fr))}
+  main[data-route="/join"] .sec[id]>.wrap{grid-template-columns:1fr}
+  main[data-route="/join"] .sec[id]>.wrap>:not(.h2){grid-column:1}
+  main[data-route="/join"] .sec[id] .table-block{margin-top:32px}
+}
+@media(max-width:900px){
+  .venture-phases .phase__box{padding:32px}
+  main[data-route="/ventures"] :is(#unit,#fund)>.wrap{grid-template-columns:1fr;gap:24px}
+  .venture-contacts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .venture-hero__heading{align-items:flex-start;flex-direction:column;gap:16px}
+  .chero .venture-hero__heading{align-items:center}
+  .venture-hero .kicker{font-size:var(--t-small)}
+  .venture-cells,.venture-contacts{grid-template-columns:1fr}
+  .venture-cells .cell{padding:40px 24px}
+  .venture-table .orow--head,.venture-phases .orow--head{grid-template-columns:1fr 1fr;display:grid;gap:24px}
+  .venture-join-table .orow,.venture-join-table [aria-colcount="3"] .orow{grid-template-columns:1fr;gap:12px}
+  .venture-join-table .orow--head,.venture-join-table [aria-colcount="3"] .orow--head{display:flex;flex-wrap:wrap;gap:24px}
+  .venture-join-table .inline{margin:0;padding:0}
+  .venture-contacts .duo__card{padding:32px 24px}
+  .venture-current{font-size:var(--t-h4)}
+}
+
+.venture-cell-label{display:none}
+main:is([data-route="/startups"],[data-route="/join"]) .note::before{content:none}
+@media(max-width:700px){
+  .venture-comparison .orow--head{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;padding:0;border:0}
+  .venture-comparison .orow:not(.orow--head){gap:24px;padding:32px 0}
+  .venture-cell-label{display:block;color:var(--muted);font-size:var(--t-small);margin-bottom:8px}
+}
+
+/* Contact: one inbox, category goes into the subject line */
+.venture-contact-channel p{display:block;color:var(--fg-2)}
+.venture-contact-channel a{color:var(--fg);text-decoration:underline;text-underline-offset:4px}
+.venture-contacts .duo__card{display:flex;flex-direction:column}
+.venture-contacts .duo__card .btn{margin-top:auto;align-self:flex-start;font-size:15px}
+.venture-contacts .duo__card p{margin-bottom:28px}
+

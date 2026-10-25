@@ -1,0 +1,5 @@
+/* Home hero: breathing horizon light and water glints (showcase/herofx.js) */
+main[data-route="/"] .hero--home{position:relative;isolation:isolate;overflow:hidden}
+.hero-fx{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero-fx canvas{width:100%;height:100%;display:block}
+

@@ -1,0 +1,98 @@
+/* Ouroboros page — same tokens and line language as the rest of the site */
+.ouro-hero{position:relative;padding:clamp(80px,9vw,140px) 0 clamp(64px,7vw,104px);text-align:center;overflow:hidden}
+.ouro-hero .wrap{position:relative;display:flex;flex-direction:column;align-items:center}
+.ouro-hero__mark{width:clamp(160px,16vw,240px);height:auto;margin-bottom:36px;filter:drop-shadow(0 20px 60px rgba(0,0,0,.6))}
+.ouro-hero h1{font-size:var(--t-hero);line-height:1.08;letter-spacing:-.04em;margin:22px 0 24px;font-weight:600}
+.ouro-hero .lead{color:var(--fg-2);font-size:clamp(19px,1.6vw,24px);margin:0 0 40px}
+.ouro-hero .button-row{justify-content:center}
+
+.ouro-stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ouro-stats dl{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.ouro-stats dl > div{padding:32px 24px;border-left:1px solid var(--line)}
+.ouro-stats dl > div:first-child{border-left:0;padding-left:0}
+.ouro-stats dt{font-size:14px;color:var(--muted);margin-bottom:10px}
+.ouro-stats dd{margin:0;font-size:clamp(28px,2.6vw,40px);font-weight:500;letter-spacing:-.03em;min-height:1.2em}
+.ouro-stats dd.ouro-stats__rt{font-size:17px;line-height:1.5;letter-spacing:-.01em;color:var(--fg-2)}
+
+.ouro-mission__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,96px);align-items:center}
+.ouro-mission figure{margin:0}
+.ouro-mission figure img{width:100%;height:auto;display:block;filter:grayscale(1) contrast(1.05);border:1px solid var(--line-2)}
+.ouro-mission figcaption{margin-top:14px;font-size:14px;color:var(--muted)}
+.ouro-mission .h2{margin:14px 0 20px}
+.ouro-mission .lead{color:var(--fg);margin:0 0 28px}
+.ouro-mission p{color:var(--fg-2)}
+.ouro-mission__coda{margin-top:28px;color:var(--fg)!important;font-size:clamp(19px,1.5vw,22px);border-left:1px solid var(--fg);padding-left:16px}
+
+.ouro-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line-2)}
+.ouro-principles article{padding:32px 32px 32px 0}
+.ouro-principles article + article{padding-left:32px;border-left:1px solid var(--line)}
+.ouro-principles span{font-size:14px;color:var(--dim);letter-spacing:.08em}
+.ouro-principles h3{font-size:var(--t-h4);font-weight:500;margin:18px 0 12px}
+.ouro-principles p{color:var(--muted);margin:0}
+
+.oloop{margin:56px 0 0}
+.oloop__row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line-2)}
+.oloop__node{position:relative;display:flex;flex-direction:column;gap:8px;padding:32px 24px 32px 0}
+.oloop__node + .oloop__node{padding-left:24px;border-left:1px solid var(--line)}
+.oloop__node::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--dim)}
+.oloop__node + .oloop__node::before{left:-4px}
+.oloop__node.is-key::before{background:var(--fg);box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+.oloop__n{font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums}
+.oloop__node b{font-size:clamp(22px,1.9vw,30px);font-weight:500;letter-spacing:-.02em}
+.oloop__node > span:last-child{font-size:15px;color:var(--muted)}
+.oloop__back{margin:0;padding:16px 0;border-top:1px dashed var(--line-2);border-bottom:1px solid var(--line);color:var(--muted);font-size:15px;text-align:right}
+.oloop__back span::before{content:"↺ ";color:var(--fg-2)}
+.oloop__keeps{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.oloop__keeps > div{padding:24px 24px 24px 0;border-bottom:1px solid var(--line)}
+.oloop__keeps > div + div{padding-left:24px;border-left:1px solid var(--line)}
+.oloop__keeps dt{font-size:17px;font-weight:500;margin-bottom:6px}
+.oloop__keeps dd{margin:0;color:var(--muted);font-size:15px}
+
+.ouro-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:40px}
+.ouro-products article{display:flex;flex-direction:column;gap:14px;padding:36px;background:var(--surface);border:1px solid var(--line)}
+.ouro-products__top{display:flex;justify-content:space-between;align-items:center}
+.ouro-products__stars{font-size:15px;color:var(--fg-2)}
+.ouro-products h3{font-size:var(--t-h3);font-weight:500;margin:0;letter-spacing:-.02em}
+.ouro-products p{color:var(--muted);margin:0 0 12px}
+.ouro-products .btn{margin-top:auto;align-self:flex-start}
+.ouro-runtime{margin:28px 0 0;color:var(--muted);max-width:80ch}
+
+.ouro-who{border-top:1px solid var(--line-2);margin-top:40px}
+.ouro-who__row{display:grid;grid-template-columns:56px minmax(0,1fr) minmax(0,1.6fr);gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--line)}
+.ouro-who__row span{font-size:14px;color:var(--dim)}
+.ouro-who__row h3{margin:0;font-size:var(--t-h4);font-weight:500}
+.ouro-who__row p{margin:0;color:var(--muted)}
+
+.ouro-road{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line-2)}
+.ouro-road__item{position:relative;padding:28px 20px 28px 0;display:flex;flex-direction:column;gap:10px}
+.ouro-road__item + .ouro-road__item{padding-left:20px;border-left:1px solid var(--line)}
+.ouro-road__phase{align-self:flex-start;font-size:12px;letter-spacing:.12em;padding:4px 10px;border:1px solid var(--line-2);border-radius:999px;color:var(--fg-2)}
+.ouro-road__item.is-now .ouro-road__phase{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.ouro-road__item.is-later{opacity:.72}
+.ouro-road__item h3{margin:6px 0 0;font-size:19px;font-weight:500}
+.ouro-road__item p{margin:0;color:var(--muted);font-size:15px}
+.ouro-road__item small{margin-top:auto;color:var(--dim);font-size:13px;border-top:1px solid var(--line);padding-top:10px}
+
+.ouro-related{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line-2);margin-top:40px}
+.ouro-related a{position:relative;display:flex;flex-direction:column;gap:8px;padding:28px 24px 28px 0;border-bottom:1px solid var(--line);transition:background .2s}
+.ouro-related a + a{padding-left:24px;border-left:1px solid var(--line)}
+.ouro-related a:hover{background:rgba(255,255,255,.03)}
+.ouro-related b{font-size:var(--t-h4);font-weight:500}
+.ouro-related span{color:var(--muted);font-size:15px}
+.ouro-related i{position:absolute;right:20px;top:28px;font-style:normal;color:var(--dim)}
+.ouro-note{margin-top:40px;font-size:14px;color:var(--dim)}
+
+.live:empty{display:inline-block;min-width:3ch;height:.9em;background:rgba(255,255,255,.06);border-radius:3px;vertical-align:-.05em}
+
+@media (max-width:900px){
+  .ouro-stats dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ouro-stats dl > div{padding:24px 16px;border-left:0;border-top:1px solid var(--line)}
+  .ouro-mission__grid,.ouro-products{grid-template-columns:1fr}
+  .ouro-principles,.oloop__row,.oloop__keeps,.ouro-road,.ouro-related{grid-template-columns:1fr}
+  .ouro-principles article,.ouro-principles article + article,.oloop__node,.oloop__node + .oloop__node,.oloop__keeps > div,.oloop__keeps > div + div,.ouro-road__item,.ouro-road__item + .ouro-road__item,.ouro-related a,.ouro-related a + a{padding:20px 0;border-left:0;border-top:1px solid var(--line)}
+  .oloop__node::before,.oloop__node + .oloop__node::before{display:none}
+  .oloop__back{text-align:left}
+  .ouro-who__row{grid-template-columns:40px 1fr}
+  .ouro-who__row p{grid-column:2}
+}
+

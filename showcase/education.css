@@ -1,0 +1,140 @@
+main[data-route^="/education"] {
+  --edu-gap: clamp(32px, 4.5vw, 64px);
+  --edu-space: clamp(48px, 6vw, 88px);
+}
+
+main[data-route^="/education"] .edu-hero {
+  padding-block: var(--edu-space);
+}
+
+.edu-hero h1 {
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.edu-hero .lockup { margin: 24px 0 0; }
+.edu-hero .kicker { font-size: var(--t-small); }
+.edu-hero .lead { margin-bottom: 0; }
+.edu-hero .status { margin-top: 8px; }
+
+main[data-route^="/education"] .tabs {
+  justify-content: center;
+  max-width: none;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: var(--pad);
+  scrollbar-width: thin;
+}
+
+main[data-route^="/education"] .tabs a {
+  min-height: 64px;
+  padding-inline: 12px;
+}
+
+main[data-route^="/education"] .tabs a:hover {
+  background: var(--surface);
+}
+
+main[data-route^="/education"] .tabs a[aria-current] {
+  background: none;
+  text-decoration: none;
+  box-shadow: inset 0 -1px var(--fg);
+}
+
+main[data-route^="/education"] .sec > .wrap > .h2 + :is(.table-block, .duo, .steps, .bullets) {
+  margin-top: var(--edu-gap);
+}
+
+main[data-route^="/education"] :is(.body-copy, .lead) { max-width: 76ch; }
+main[data-route^="/education"] .status { font-size: var(--t-small); }
+
+main[data-route="/education"] #philosophy {
+  padding-bottom: var(--edu-space);
+  text-align: center;
+}
+
+main[data-route="/education"] #philosophy .lead {
+  max-width: 64ch;
+  margin-inline: auto;
+  color: var(--fg-2);
+}
+
+.edu-proof__layout {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: var(--edu-gap);
+  align-items: center;
+}
+
+.edu-proof figure { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; }
+.edu-proof figure img { width: 100%; height: 100%; object-fit: cover; }
+.edu-proof .h2 { margin-top: 24px; font-size: var(--t-h3); text-wrap: balance; }
+.edu-proof .body-copy { margin: 28px 0 32px; }
+
+main[data-route="/education"] .edu-proof__layout > * + * { margin-top: 0; }
+.edu-audiences .ico { width: 104px; margin-bottom: 36px; }
+.edu-audiences h3 { text-wrap: balance; }
+
+main[data-route="/education"] .edu-paths .orow {
+  grid-template-columns: 1.1fr 1.2fr 1.3fr 140px;
+  gap: 32px;
+  padding-block: 36px;
+  align-items: center;
+}
+
+.edu-paths h3 { font-size: 24px; font-weight: 500; margin: 0 0 16px; }
+.edu-paths [role="cell"]:nth-child(2) { color: var(--muted); text-wrap: pretty; }
+.edu-paths [role="cell"]:nth-child(3) { color: var(--fg-2); text-wrap: pretty; }
+
+main[data-route="/education/advanced"] [data-table="5"] .orow {
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 40px;
+  padding-block: 28px;
+}
+
+main[data-route="/education/advanced"] :is([data-table="10"], [data-table="14"]) .orow {
+  grid-template-columns: 100px 1.2fr 1fr;
+  gap: 40px;
+}
+
+main[data-route="/education/corporate"] [data-table="3"] .orow {
+  grid-template-columns: .42fr 1fr;
+  gap: var(--edu-gap);
+  padding-block: 32px;
+}
+
+main[data-route^="/education"] .orow:not(.orow--head) > [role="cell"]:first-child { font-weight: 500; }
+main[data-route^="/education"] .olist--generic .orow > div { overflow-wrap: break-word; }
+main[data-route^="/education"] .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+main[data-route^="/education"] .step small { font-size: var(--t-small); }
+.edu-stages__head { display: flex; gap: 32px; color: var(--muted); font-size: var(--t-small); }
+.edu-stages .steps--img { margin-top: 0; border-top: 0; }
+.edu-stages .step { min-width: 0; }
+
+@media (max-width: 1100px) {
+  main[data-route^="/education"] .tabs { justify-content: flex-start; }
+  main[data-route="/education"] .edu-paths .orow { grid-template-columns: 1fr 1fr; }
+  main[data-route^="/education"] .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  main[data-route^="/education"] .step:nth-child(2) { border-right: 0; margin-right: 0; }
+}
+
+@media (max-width: 900px) {
+  .edu-proof__layout { grid-template-columns: 1fr; }
+  .edu-proof figure { aspect-ratio: 16 / 9; }
+}
+
+@media (max-width: 700px) {
+  .edu-hero h1 { font-size: clamp(32px, 9vw, 44px); line-height: 1.2; }
+  main[data-route^="/education"] .tabs { gap: 12px; }
+  main[data-route^="/education"] .tabs a { padding-inline: 8px; min-height: 56px; }
+  main[data-route="/education"] .edu-paths .orow,
+  main[data-route="/education/advanced"] :is([data-table="5"], [data-table="10"], [data-table="14"]) .orow,
+  main[data-route="/education/corporate"] [data-table="3"] .orow {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  main[data-route^="/education"] .orow--head { gap: 12px; }
+  main[data-route^="/education"] .steps { grid-template-columns: 1fr; }
+  main[data-route^="/education"] .step { margin-right: 0; padding-right: 0; }
+  .edu-audiences .ico { width: 88px; margin-bottom: 28px; }
+  .edu-proof .h2 { font-size: 32px; }
+}

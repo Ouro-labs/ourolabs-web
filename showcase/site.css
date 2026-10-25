@@ -1,0 +1,58 @@
+/* People with role, credentials and awards */
+.people--full{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.person--full{display:flex;flex-direction:column;gap:20px}
+.person--full > img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.person__body{display:flex;flex-direction:column;gap:6px}
+.person__body > b{font-size:var(--t-h4);font-weight:500}
+.person__body > b small{font-size:15px;color:var(--muted);font-weight:400;margin-left:6px}
+.person__body > span{font-size:14px;color:var(--dim)}
+.person__role{margin:10px 0 6px;color:var(--fg)!important;font-size:16px!important}
+.person__facts{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.person__facts li{padding:10px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--fg-2)}
+.person__awards h4{margin:18px 0 6px;font-size:13px;color:var(--muted);font-weight:500;letter-spacing:.04em}
+.person__awards ul{list-style:none;margin:0;padding:0}
+.person__awards li{display:grid;grid-template-columns:64px 1fr;gap:4px 12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.person__awards li span{color:var(--dim);font-size:13px;grid-row:span 2}
+.person__awards li b{font-weight:500}
+.person__awards li em{font-style:normal;color:var(--muted);font-size:14px}
+.person__links{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+.seed-support{margin-top:32px}
+@media (max-width:900px){.people--full{grid-template-columns:1fr}}
+
+.ft__links{display:flex;gap:20px}
+@media (min-width:1101px){.footer-groups{grid-template-columns:repeat(7,minmax(0,1fr))!important}}
+.venture-contact-channel a,.sup-cta a:not(.btn){display:inline-block;padding:12px 0}
+.home-ouro__text .button-row{margin-top:32px}
+.chip-link{display:inline-block;font-size:14px;color:var(--fg-2);border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;margin:4px 6px 0 0;transition:border-color .2s,color .2s}
+.chip-link:hover{border-color:var(--fg);color:var(--fg)}
+.person__contribs > div{padding-top:4px}
+.contribs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:40px;min-height:200px}
+.contrib{display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px 12px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;transition:background .2s}
+.contrib:hover{background:rgba(255,255,255,.03)}
+.contrib img{width:72px;height:72px;border-radius:50%;filter:grayscale(1);transition:filter .3s}
+.contrib:hover img{filter:none}
+.contrib b{font-size:15px;font-weight:500;word-break:break-all}
+.contrib small{font-size:13px;color:var(--dim)}
+
+/* Record board: events and news together, with thumbnails and a type filter */
+.board-filter > input{position:absolute;opacity:0;pointer-events:none}
+.board-filter > label{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;margin:0 8px 24px 0;border:1px solid var(--line-2);border-radius:999px;font-size:15px;color:var(--fg-2);cursor:pointer}
+.board-filter > label span{font-size:13px;color:var(--dim)}
+.board-filter > input:checked + label{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.board-filter > input:checked + label span{color:rgba(0,0,0,.55)}
+.board-filter > input:focus-visible + label{outline:2px solid var(--fg);outline-offset:3px}
+#bf-event:checked ~ .board .brow[data-t="news"],#bf-news:checked ~ .board .brow[data-t="event"]{display:none}
+.brow--thumb{grid-template-columns:200px 100px 110px 1fr;align-items:center}
+.brow__img{display:block;aspect-ratio:16/10;overflow:hidden;background:var(--surface)}
+.brow__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.brow__img.is-poster img{object-fit:contain}
+a.brow--thumb:hover .brow__img img{transform:scale(1.04)}
+@media (max-width:900px){.brow--thumb{grid-template-columns:120px 1fr;gap:6px 16px;align-items:start}.brow--thumb .brow__img{grid-row:span 3}}
+
+/* Documents, diagrams and screens: shown whole on their paper colour */
+img.is-doc{object-fit:contain!important;background:var(--paper,#fff);padding:5%;box-sizing:border-box}
+.tile img.is-doc,.brow__img img.is-doc{padding:6%}
+/* Research programs: photos 4:3, documents at their own proportions */
+.rprog__img{aspect-ratio:4/3;align-self:start}
+.rprog__img:has(img.is-doc){aspect-ratio:auto;border:1px solid var(--line)}
+.rprog__img img.is-doc{height:auto;display:block}
