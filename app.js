@@ -109,6 +109,10 @@ function render() {
     if (location.hash.startsWith('#/faq')) anchor = 'faq';
     history.replaceState(null, '', `#${path}${anchor ? '@' + anchor : ''}`);
   }
+  if (path === '/seed') {
+    location.replace(anchor === 'apply' ? '/seed/apply' : '/seed/' + (anchor === 'faq' ? '#faq' : ''));
+    return;
+  }
   const initial = current === null;
   setMap(false);
   if (path !== current) {
