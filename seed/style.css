@@ -247,3 +247,6 @@ html,body{overflow-x:clip}
 .types .type{grid-template-columns:1fr}.types .type small{grid-column:1}
 @media (min-width:1025px){.steps--perks{grid-template-columns:repeat(3,1fr)}.steps--perks li:nth-child(4){padding-left:0;border-left:0}.steps--perks li:nth-child(4)::before{left:0}.steps--perks li:nth-child(n+4){border-top:1px solid var(--line)}}
 @media (max-width:900px){.types{grid-template-columns:1fr}}
+
+.form__pub{border:1px solid var(--line-2);padding:20px 20px 4px;margin:4px 0 0;display:grid;gap:16px}.form__pub legend{padding:0 8px;color:var(--fg-2);font-size:15px}.form__hint{margin:0;color:var(--muted);font-size:14px}
+.global .form--global{margin-top:28px;max-width:860px}

@@ -32,10 +32,10 @@
       <h2 class="h2" style="margin-top:16px">Apply</h2><p class="ko-h">1기 신청</p>
       <ul class="apply__facts">
         <li><b>100</b><span>selected · 명 선발</span></li>
-        <li><b>Free</b><span>for selected members · 선정 멤버 무료</span></li>
-        <li><b>6</b><span>sessions 2 · co-work 3 · showcase 1</span></li>
+        <li><b>Free</b><span>refundable ₩100,000 deposit · 참가비 무료, 보증금 반환</span></li>
+        <li><b>6</b><span>sessions 3 · co-work 3</span></li>
       </ul>
-      <p class="apply__note">Apply by Nov 7 · results Nov 8. Cancel anytime via the link in your confirmation email.<br>마감 11.07 (토) · 발표 11.08 (일) · 접수 메일의 링크로 언제든 취소</p>
+      <p class="apply__note">Apply by Nov 7 · results Nov 8 · deposit by Nov 11 (Wed). Cancel anytime via the link in your confirmation email.<br>마감 11.07 (토) · 발표 11.08 (일) · 접수 메일의 링크로 언제든 취소</p>
     </div>
     <div class="apply__body"><form class="form" id="applyForm" novalidate>
       <div class="form__row">
@@ -64,10 +64,49 @@
         <label><span>How you heard · 알게 된 경로</span><input name="source" maxlength="100"></label>
       </div>
       <label><span>Company training inquiry (optional) · 기업 상담</span><input name="company" maxlength="500"></label>
+      <fieldset class="form__pub"><legend>Sharing your work (optional) · 사례·사진 공개 동의 (선택)</legend>
+        <p class="form__hint">We share Cohort 01 stories in Korean and English. Choose what you are comfortable with; you can change it anytime by replying to any of our emails. 1기 사례를 한국어·영어로 소개합니다. 편한 범위를 골라 주세요. 메일에 회신하면 언제든 바꿀 수 있습니다.</p>
+        <div class="form__row">
+          <label><span>Your story & name · 사례와 이름</span><select name="pub_case"><option value="">Select · 선택</option><option>이름·회사·직책과 함께 공개 가능 (Name, company and title)</option><option>이름 없이 사례만 공개 (Story only, no name)</option><option>공개하지 않음 (Do not share)</option></select></label>
+          <label><span>Photos & video · 사진·영상</span><select name="pub_photo"><option value="">Select · 선택</option><option>그대로 공개 가능 (OK to share)</option><option>얼굴 블러 처리 후 공개 (Blur my face)</option><option>공개하지 않음 (Do not share)</option></select></label>
+        </div>
+      </fieldset>
       <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="form__check"><input type="checkbox" name="deposit_consent" required><span>I have read the <a href="#policy">deposit policy</a> and agree to it if selected. 선정 시 <a href="#policy">보증금 규정</a>에 동의합니다.</span></label>
       <label class="form__check"><input type="checkbox" name="consent" required><span>I agree to the use of this information for review and notices. 신청 검토와 안내를 위한 정보 수집·이용에 동의합니다.</span></label>
       <div class="form__foot"><button class="btn btn--w" type="submit">Submit · 신청하기 <span aria-hidden="true">→</span></button><p class="form__msg" id="applyMsg" role="status" aria-live="polite"></p></div>
     </form></div>
+
+    <section class="policy" id="policy">
+      <p class="kicker">Deposit policy · 보증금 규정</p>
+      <p class="policy__lead">Selected members confirm their seat with a refundable deposit of <b>₩100,000</b>, transferred by <b>Nov 11 (Wed)</b>. 선정자는 11/11(수)까지 보증금 10만원을 입금하면 참가가 확정됩니다.</p>
+      <table class="policy__t">
+        <tr><th>Case · 상황</th><th>Refund · 반환</th></tr>
+        <tr><td>Completed: At least 4 of 7 sessions (Nov 1 Welcome counts if you checked in, Jan 24 required) + one shared piece of work · 수료: 7회 중 4회 이상 참석(11/1 Welcome 체크인 시 1회 인정, 1/24 필수) + 직접 만든 작업 1건 공유</td><td>100%</td></tr>
+        <tr><td>Cancelled before the first session (Nov 15) · 첫 회차(11/15) 전 취소</td><td>100%</td></tr>
+        <tr><td>Session cancelled or changed by organizers · 운영진 사정으로 회차 취소·변경</td><td>100%</td></tr>
+        <tr><td>Not completed, including dropping out · 수료 기준 미달(중도 포기 포함)</td><td>No refund · 반환 없음</td></tr>
+      </table>
+      <p class="policy__note">Deposits are held in a dedicated deposit account (Toss Bank, holder: Jeongseung Lee) for Ouro Labs (in formation) and will be transferred to the company account upon incorporation. Deposits not refunded are kept as a penalty for not completing. Refunds are made within 14 days after the final session (Jan 24).<br>보증금은 설립 예정인 아우로랩스의 보증금 전용 계좌(토스뱅크, 예금주 이정승)에 보관되며, 법인 설립 후 법인 계좌로 이관됩니다. 반환하지 않는 보증금은 미수료 위약금으로 처리합니다. 반환은 마지막 회차(1/24) 후 14일 이내에 합니다.</p>
+    </section>
+
+    <section class="policy global" id="global">
+      <p class="kicker">Global Cohort · 2027</p>
+      <p class="policy__lead"><b>Not in Seoul?</b> Cohort 01 meets in person in Seoul. Our first global online cohort opens in 2027, with hubs in Korea, Japan and the US. Join the waitlist and we will invite you first.<br>서울 밖에 계신가요? 1기는 서울에서 오프라인으로 진행합니다. 2027년에는 한국·일본·미국 거점과 함께 첫 글로벌 온라인 기수를 엽니다. 대기 명단에 남겨 주시면 가장 먼저 초대합니다.</p>
+      <form class="form form--global" id="globalForm" novalidate>
+        <div class="form__row">
+          <label><span>Name <i>*</i></span><input name="name" required maxlength="60" autocomplete="name"></label>
+          <label><span>Email <i>*</i></span><input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+        </div>
+        <div class="form__row">
+          <label><span>Country · City</span><input name="country" maxlength="80" placeholder="e.g. Tokyo, Japan"></label>
+          <label><span>Role · Company</span><input name="role" maxlength="160" placeholder="e.g. COO, Acme Logistics"></label>
+        </div>
+        <label><span>What would you bring to AI? · AI로 풀고 싶은 일</span><input name="interest" maxlength="600"></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__foot"><button class="btn btn--w" type="submit">Join the global waitlist <span aria-hidden="true">→</span></button><p class="form__msg" id="globalMsg" role="status" aria-live="polite"></p></div>
+      </form>
+    </section>
 
   </div>
 </section>
@@ -75,7 +114,7 @@
 
 <footer class="ft"><div class="wrap"><span>© OOO Seed · Ouroboros</span><a href="/" target="_blank" rel="noopener">OURO LABS</a></div></footer>
 
-<script src="app.js?v=9" defer></script>
+<script src="app.js?v=10" defer></script>
 </body>
 </html>
 
