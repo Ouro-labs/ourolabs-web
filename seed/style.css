@@ -250,3 +250,20 @@ html,body{overflow-x:clip}
 
 .form__pub{border:1px solid var(--line-2);padding:20px;margin:4px 0 0;display:grid;gap:16px;min-width:0}.form__pub legend{padding:0 8px;color:var(--fg-2);font-size:15px}.form__hint{margin:0;color:var(--muted);font-size:14px}
 .global .form--global{margin-top:28px;max-width:860px}
+
+.rush{flex:1 1 100%;max-width:560px;border:1px solid var(--line-2);background:rgba(20,20,20,.72);backdrop-filter:blur(8px);padding:18px 20px 16px;display:grid;gap:10px}
+.rush__top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.rush__d{color:#141414;background:#fff;padding:3px 10px;border-radius:999px;font-weight:700;letter-spacing:.04em;white-space:nowrap}
+.rush__d.is-hot{background:#ff8a5c;color:#141414;animation:rushPulse 1.6s ease-in-out infinite}
+.rush__n{display:flex;align-items:baseline;gap:10px;font-variant-numeric:tabular-nums}
+.rush__n b{font-size:clamp(36px,3.4vw,52px);font-weight:600;letter-spacing:-.04em;line-height:1}
+.rush__n span{font-size:20px;color:var(--muted)}
+.rush__n em{margin-left:auto;font-style:normal;font-size:20px;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rush__bar{height:6px;background:rgba(255,255,255,.1);overflow:hidden}
+.rush__bar i{display:block;height:100%;background:var(--grad);transform-origin:left;animation:rushFill 1.2s cubic-bezier(.2,.7,.2,1) both}
+.rush__note{margin:0;font-size:14px;line-height:1.55;color:var(--fg-2)}
+.apply__head .rush{margin:24px 0}
+.cta .rush{max-width:520px}
+@keyframes rushFill{from{transform:scaleX(0)}}
+@keyframes rushPulse{50%{opacity:.75}}
+@media (prefers-reduced-motion:reduce){.rush__bar i,.rush__d.is-hot{animation:none}}

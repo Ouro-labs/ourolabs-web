@@ -1,4 +1,7 @@
 'use strict';
+document.querySelectorAll('.rush[data-deadline]').forEach(r=>{const d=r.querySelector('[data-dday]');const ms=new Date(r.dataset.deadline)-Date.now();if(!d||isNaN(ms))return;const days=Math.ceil(ms/864e5);
+ if(ms<=0){d.textContent='Closed · 마감';return;}
+ d.textContent=days<=1?'D-DAY · 오늘 마감':'D-'+(days-1)+' · 마감 임박';if(days<=4)d.classList.add('is-hot');});
 document.querySelectorAll('.faq details').forEach(d=>d.addEventListener('toggle',()=>{if(d.open)document.querySelectorAll('.faq details').forEach(o=>{if(o!==d)o.open=false;});}));
 const car=document.getElementById('car'),n=document.getElementById('carN'),l=document.getElementById('carL');
 if(car){const up=()=>{const max=car.scrollWidth-car.clientWidth;const p=max>0?car.scrollLeft/max:1;const items=car.children.length;const i=Math.min(items,Math.max(1,Math.round(p*(items-1))+1));n.textContent=String(i).padStart(2,'0');l.style.width=(14+p*86)+'%';};car.addEventListener('scroll',up,{passive:true});up();}
