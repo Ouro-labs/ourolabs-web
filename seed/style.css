@@ -336,3 +336,6 @@ html[data-lang=both] .cur__tracks small .bi>.l-en,html[data-lang=both] .cur__tra
 @media (max-width:1024px){.mentors{grid-template-columns:1fr 1fr}}
 @media (max-width:768px){.mentors{grid-template-columns:1fr}.cur{grid-template-columns:1fr;gap:18px}.cur__dl,.cur__tracks,.fit{grid-template-columns:1fr}.wanted__if li{font-size:16px}.mentors__lead{margin-top:-16px}}
 
+
+.what__meta{margin-top:12px;font-size:var(--t-small);color:var(--dim);letter-spacing:.01em}
+.hero__meta b .bi>.l-ko{font-size:.85em}
