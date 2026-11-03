@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko" data-lang="ko">
 <head>
 <meta charset="UTF-8">
 <base href="/seed/">
@@ -11,7 +11,7 @@
 <meta property="og:description" content="A selective AI community for founders and decision-makers · 100 selected · Free">
 <meta property="og:image" content="assets/seed-wide.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css">
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23141414'/%3E%3Cpath d='M28.5 9.5A13 13 0 1 0 32 24.5' stroke='white' stroke-width='3.4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='20' cy='20' r='3.4' fill='white'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -19,8 +19,9 @@
 <header class="hd">
   <a class="hd__logo" href="/seed/#top" aria-label="OOO Seed 처음으로"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M28.5 9.5A13 13 0 1 0 32 24.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="20" cy="20" r="3" fill="#fff"/></svg>OOO Seed</a>
   <nav class="hd__nav" aria-label="주요 메뉴">
-    <a href="/seed/#what"><span>About</span></a><a href="/seed/#sundays"><span>Schedule</span></a><a href="/seed/#who"><span>Who</span></a><a href="/seed/#events"><span>Events</span></a><a href="/seed/#faq"><span>FAQ</span></a>
+    <a href="/seed/#who"><span>Who</span></a><a href="/seed/#mentors"><span>Mentors</span></a><a href="/seed/#curriculum"><span>Curriculum</span></a><a href="/seed/#events"><span>Events</span></a><a href="/seed/#faq"><span>FAQ</span></a>
   </nav>
+  <div class="hd__lang" role="group" aria-label="Language · 언어"><button type="button" data-set-lang="ko">KO</button><button type="button" data-set-lang="en">EN</button><button type="button" data-set-lang="both">KO+EN</button></div>
   <a class="hd__cell" href="/seed/apply">Apply</a>
 </header>
 
@@ -30,70 +31,70 @@
     <div class="apply__head">
       <p class="kicker">Apply · Cohort 01</p>
       <h2 class="h2" style="margin-top:16px">Apply</h2><p class="ko-h">1기 신청</p>
-      <div class="rush" data-deadline="2026-11-07T23:59:59+09:00"><div class="rush__top"><span class="rush__k">Cohort 01 · 1차 모집 중</span><span class="rush__d" data-dday>마감 11.07 (토)</span></div><p class="rush__note">Selective, limited seats. We may close early. Cohort 01 is the founding cohort.<br>선발제 · 정원 제한 · 조기 마감될 수 있습니다. 1기는 Founding Cohort입니다.</p></div>
+      <div class="rush" data-deadline="2026-11-07T23:59:59+09:00"><div class="rush__top"><span class="rush__k">Seed Cohort 01 · <span class="bi"><span class="l-en">Now recruiting</span><span class="l-ko">1차 모집 중</span></span></span><span class="rush__d" data-dday><span class="bi"><span class="l-en">Apply by Nov 7</span><span class="l-ko">마감 11.07 (토)</span></span></span></div><p class="rush__note"><span class="bi"><span class="l-en">Selective, limited seats. We may close early. Cohort 01 is the founding cohort.</span><span class="l-ko">선발제 · 정원 제한 · 조기 마감될 수 있습니다. 1기는 Founding Cohort입니다.</span></span></p></div>
       <ul class="apply__facts">
-        <li><b>100</b><span>selected · 명 선발</span></li>
-        <li><b>Free</b><span>₩100,000 deposit, refunded on completion · 참가비 무료, 보증금 수료 시 반환</span></li>
-        <li><b>6</b><span>sessions 3 · co-work 3</span></li>
+        <li><b>100</b><span><span class="bi"><span class="l-en">selected</span><span class="l-ko">명 선발</span></span></span></li>
+        <li><b>Free</b><span><span class="bi"><span class="l-en">₩100,000 deposit, refunded on completion</span><span class="l-ko">참가비 무료, 보증금 10만원은 수료 시 반환</span></span></span></li>
+        <li><b>6</b><span><span class="bi"><span class="l-en">sessions 3 · co-work 3</span><span class="l-ko">전문 세션 3 · 모각코 3</span></span></span></li>
       </ul>
-      <p class="apply__note">Apply by Nov 7 · results Nov 8 · deposit by Nov 11 (Wed). Cancel anytime via the link in your confirmation email.<br>마감 11.07 (토) · 발표 11.08 (일) · 접수 메일의 링크로 언제든 취소</p>
+      <p class="apply__note"><span class="bi"><span class="l-en">Apply by Nov 7 · results Nov 8 · deposit by Nov 11 (Wed). Cancel anytime via the link in your confirmation email.</span><span class="l-ko">마감 11.07 (토) · 발표 11.08 (일) · 보증금 11/11(수)까지 · 접수 메일의 링크로 언제든 취소</span></span></p>
     </div>
     <div class="apply__body"><form class="form" id="applyForm" novalidate>
       <div class="form__row">
-        <label><span>Name · 이름 <i>*</i></span><input name="name" required maxlength="60" autocomplete="name"></label>
-        <label><span>Email · 이메일 <i>*</i></span><input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+        <label><span><span class="bi"><span class="l-en">Name</span><span class="l-ko">이름</span></span> <i>*</i></span><input name="name" required maxlength="60" autocomplete="name"></label>
+        <label><span><span class="bi"><span class="l-en">Email</span><span class="l-ko">이메일</span></span> <i>*</i></span><input name="email" type="email" required maxlength="120" autocomplete="email"></label>
       </div>
       <div class="form__row">
-        <label><span>Phone · 연락처</span><input name="phone" maxlength="30" autocomplete="tel" placeholder="010-0000-0000"></label>
-        <label><span>Years of experience · 경력(년)</span><input name="years" inputmode="numeric" maxlength="3"></label>
+        <label><span><span class="bi"><span class="l-en">Phone</span><span class="l-ko">연락처</span></span></span><input name="phone" maxlength="30" autocomplete="tel" placeholder="010-0000-0000"></label>
+        <label><span><span class="bi"><span class="l-en">Years of experience</span><span class="l-ko">경력(년)</span></span></span><input name="years" inputmode="numeric" maxlength="3"></label>
       </div>
       <div class="form__row">
-        <label><span>Role · 직급 <i>*</i></span><select name="level" required><option value="">Select · 선택</option><option>대표·창업자 (Founder/CEO)</option><option>1인 창업자·프리랜서 (Solo founder)</option><option>임원(C-level·이사)</option><option>본부장·사업부장</option><option>팀장·파트장</option><option>전문직 파트너(법무·회계·의료 등)</option><option>현업 실무자</option><option>기타</option></select></label>
-        <label><span>Company size · 규모</span><select name="size"><option value="">Select · 선택</option><option>1인 (Solo)</option><option>2–10명</option><option>11–50명</option><option>51–300명</option><option>301–1,000명</option><option>1,000명 이상</option><option>기관·공공</option></select></label>
+        <label><span><span class="bi"><span class="l-en">Role</span><span class="l-ko">직급</span></span> <i>*</i></span><select name="level" required><option value="">Select · 선택</option><option>대표·창업자 (Founder/CEO)</option><option>1인 창업자·프리랜서 (Solo founder)</option><option>임원(C-level·이사)</option><option>본부장·사업부장</option><option>팀장·파트장</option><option>전문직 파트너(법무·회계·의료 등)</option><option>현업 실무자</option><option>기타</option></select></label>
+        <label><span><span class="bi"><span class="l-en">Company size</span><span class="l-ko">규모</span></span></span><select name="size"><option value="">Select · 선택</option><option>1인 (Solo)</option><option>2–10명</option><option>11–50명</option><option>51–300명</option><option>301–1,000명</option><option>1,000명 이상</option><option>기관·공공</option></select></label>
       </div>
       <div class="form__row">
-        <label><span>Company & title · 소속·직무 <i>*</i></span><input name="role" required maxlength="120" placeholder="e.g. CEO, Acme Foods / 대표"></label>
-        <label><span>Industry · 산업</span><select name="industry"><option value="">Select · 선택</option><option>제조</option><option>금융</option><option>회계·세무</option><option>유통·커머스</option><option>물류</option><option>건설·부동산</option><option>의료·제약</option><option>공공</option><option>교육</option><option>법무</option><option>마케팅·광고</option><option>IT·소프트웨어</option><option>연구</option><option>기타</option></select></label>
+        <label><span><span class="bi"><span class="l-en">Company & title</span><span class="l-ko">소속·직무</span></span> <i>*</i></span><input name="role" required maxlength="120" placeholder="e.g. CEO, Acme Foods / 대표"></label>
+        <label><span><span class="bi"><span class="l-en">Industry</span><span class="l-ko">산업</span></span></span><select name="industry"><option value="">Select · 선택</option><option>제조</option><option>금융</option><option>회계·세무</option><option>유통·커머스</option><option>물류</option><option>건설·부동산</option><option>의료·제약</option><option>공공</option><option>교육</option><option>법무</option><option>마케팅·광고</option><option>IT·소프트웨어</option><option>연구</option><option>기타</option></select></label>
       </div>
-      <label><span>AI experience · AI 사용 경험 <i>*</i></span><textarea name="ai" required maxlength="800" rows="2" placeholder="e.g. asked ChatGPT a few times"></textarea></label>
-      <label><span>What you want to try with AI · 해보고 싶은 일 <i>*</i></span><textarea name="want" required maxlength="1200" rows="3" placeholder="e.g. weekly sales review / 주간 매출 검토"></textarea></label>
+      <label><span><span class="bi"><span class="l-en">AI experience</span><span class="l-ko">AI 사용 경험</span></span> <i>*</i></span><textarea name="ai" required maxlength="800" rows="2" placeholder="e.g. asked ChatGPT a few times"></textarea></label>
+      <label><span><span class="bi"><span class="l-en">What you want to try with AI</span><span class="l-ko">해보고 싶은 일</span></span> <i>*</i></span><textarea name="want" required maxlength="1200" rows="3" placeholder="e.g. weekly sales review / 주간 매출 검토"></textarea></label>
       <div class="form__row">
-        <label><span>Languages & setup help · 언어·준비 도움</span><input name="lang" maxlength="300" placeholder="e.g. English, Korean"></label>
-        <label><span>Availability · 참석 가능 회차 <i>*</i></span><select name="attend" required><option value="">Select · 선택</option><option>6회 대부분</option><option>절반 정도</option><option>전문 세션 위주</option><option>일부만</option></select></label>
+        <label><span><span class="bi"><span class="l-en">Languages & setup help</span><span class="l-ko">언어·준비 도움</span></span></span><input name="lang" maxlength="300" placeholder="e.g. English, Korean"></label>
+        <label><span><span class="bi"><span class="l-en">Availability</span><span class="l-ko">참석 가능 회차</span></span> <i>*</i></span><select name="attend" required><option value="">Select · 선택</option><option>6회 대부분</option><option>절반 정도</option><option>전문 세션 위주</option><option>일부만</option></select></label>
       </div>
       <div class="form__row">
-        <label><span>How you heard · 알게 된 경로</span><input name="source" maxlength="100"></label>
+        <label><span><span class="bi"><span class="l-en">How you heard</span><span class="l-ko">알게 된 경로</span></span></span><input name="source" maxlength="100"></label>
       </div>
-      <label><span>Company training inquiry (optional) · 기업 상담</span><input name="company" maxlength="500"></label>
-      <fieldset class="form__pub"><legend>Sharing your work (optional) · 사례·사진 공개 동의 (선택)</legend>
-        <p class="form__hint">We share Cohort 01 stories in Korean and English. Choose what you are comfortable with; you can change it anytime by replying to any of our emails. 1기 사례를 한국어·영어로 소개합니다. 편한 범위를 골라 주세요. 메일에 회신하면 언제든 바꿀 수 있습니다.</p>
+      <label><span><span class="bi"><span class="l-en">Company training inquiry (optional)</span><span class="l-ko">기업 상담</span></span></span><input name="company" maxlength="500"></label>
+      <fieldset class="form__pub"><legend><span class="bi"><span class="l-en">Sharing your work (optional)</span><span class="l-ko">사례·사진 공개 동의 (선택)</span></span></legend>
+        <p class="form__hint"><span class="bi"><span class="l-en">We share Cohort 01 stories in Korean and English. Choose what you are comfortable with; you can change it anytime by replying to any of our emails.</span><span class="l-ko">1기 사례를 한국어·영어로 소개합니다. 편한 범위를 골라 주세요. 메일에 회신하면 언제든 바꿀 수 있습니다.</span></span></p>
         <div class="form__row">
-          <label><span>Your story & name · 사례와 이름</span><select name="pub_case"><option value="">Select · 선택</option><option>이름·회사·직책과 함께 공개 가능 (Name, company and title)</option><option>이름 없이 사례만 공개 (Story only, no name)</option><option>공개하지 않음 (Do not share)</option></select></label>
-          <label><span>Photos & video · 사진·영상</span><select name="pub_photo"><option value="">Select · 선택</option><option>그대로 공개 가능 (OK to share)</option><option>얼굴 블러 처리 후 공개 (Blur my face)</option><option>공개하지 않음 (Do not share)</option></select></label>
+          <label><span><span class="bi"><span class="l-en">Your story & name</span><span class="l-ko">사례와 이름</span></span></span><select name="pub_case"><option value="">Select · 선택</option><option>이름·회사·직책과 함께 공개 가능 (Name, company and title)</option><option>이름 없이 사례만 공개 (Story only, no name)</option><option>공개하지 않음 (Do not share)</option></select></label>
+          <label><span><span class="bi"><span class="l-en">Photos & video</span><span class="l-ko">사진·영상</span></span></span><select name="pub_photo"><option value="">Select · 선택</option><option>그대로 공개 가능 (OK to share)</option><option>얼굴 블러 처리 후 공개 (Blur my face)</option><option>공개하지 않음 (Do not share)</option></select></label>
         </div>
       </fieldset>
       <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <label class="form__check"><input type="checkbox" name="deposit_consent" required><span>I have read the <a href="#policy">deposit policy</a> and agree to it if selected. 선정 시 <a href="#policy">보증금 규정</a>에 동의합니다.</span></label>
-      <label class="form__check"><input type="checkbox" name="consent" required><span>I agree to the use of this information for review and notices. 신청 검토와 안내를 위한 정보 수집·이용에 동의합니다.</span></label>
+      <label class="form__check"><input type="checkbox" name="deposit_consent" required><span><span class="bi"><span class="l-en">I have read the <a href="#policy">deposit policy</a> and agree to it if selected.</span><span class="l-ko">선정 시 <a href="#policy">보증금 규정</a>에 동의합니다.</span></span></span></label>
+      <label class="form__check"><input type="checkbox" name="consent" required><span><span class="bi"><span class="l-en">I agree to the use of this information for review and notices.</span><span class="l-ko">신청 검토와 안내를 위한 정보 수집·이용에 동의합니다.</span></span></span></label>
       <div class="form__foot"><button class="btn btn--w" type="submit">Submit · 신청하기 <span aria-hidden="true">→</span></button><p class="form__msg" id="applyMsg" role="status" aria-live="polite"></p></div>
     </form></div>
 
     <section class="policy" id="policy">
       <p class="kicker">Deposit policy · 보증금 규정</p>
-      <p class="policy__lead">Selected members confirm their seat with a refundable deposit of <b>₩100,000</b>, transferred by <b>Nov 11 (Wed)</b>. 선정자는 11/11(수)까지 보증금 10만원을 입금하면 참가가 확정됩니다.</p>
+      <p class="policy__lead"><span class="bi"><span class="l-en">Selected members confirm their seat with a refundable deposit of <b>₩100,000</b>, transferred by <b>Nov 11 (Wed)</b>.</span><span class="l-ko">선정자는 <b>11/11(수)</b>까지 보증금 <b>10만원</b>을 입금하면 참가가 확정됩니다.</span></span></p>
       <table class="policy__t">
-        <tr><th>Case · 상황</th><th>Refund · 반환</th></tr>
-        <tr><td>Completed: At least 4 of 7 sessions (Nov 1 Welcome counts if you checked in, Jan 24 required) + one shared piece of work · 수료: 7회 중 4회 이상 참석(11/1 Welcome 체크인 시 1회 인정, 1/24 필수) + 직접 만든 작업 1건 공유</td><td>100%</td></tr>
-        <tr><td>Cancelled before the first session (Nov 15) · 첫 회차(11/15) 전 취소</td><td>100%</td></tr>
-        <tr><td>Session cancelled or changed by organizers · 운영진 사정으로 회차 취소·변경</td><td>100%</td></tr>
-        <tr><td>Not completed, including dropping out · 수료 기준 미달(중도 포기 포함)</td><td>No refund · 반환 없음</td></tr>
+        <tr><th><span class="bi"><span class="l-en">Case</span><span class="l-ko">상황</span></span></th><th><span class="bi"><span class="l-en">Refund</span><span class="l-ko">반환</span></span></th></tr>
+        <tr><td><span class="bi"><span class="l-en">Completed: At least 4 of 7 sessions (Nov 1 Welcome counts if you checked in, Jan 24 required) + one shared piece of work</span><span class="l-ko">수료: 7회 중 4회 이상 참석(11/1 Welcome 체크인 시 1회 인정, 1/24 필수) + 직접 만든 작업 1건 공유</span></span></td><td>100%</td></tr>
+        <tr><td><span class="bi"><span class="l-en">Cancelled before the first session (Nov 15)</span><span class="l-ko">첫 회차(11/15) 전 취소</span></span></td><td>100%</td></tr>
+        <tr><td><span class="bi"><span class="l-en">Session cancelled or changed by organizers</span><span class="l-ko">운영진 사정으로 회차 취소·변경</span></span></td><td>100%</td></tr>
+        <tr><td><span class="bi"><span class="l-en">Not completed, including dropping out</span><span class="l-ko">수료 기준 미달(중도 포기 포함)</span></span></td><td><span class="bi"><span class="l-en">No refund</span><span class="l-ko">반환 없음</span></span></td></tr>
       </table>
-      <p class="policy__note">Deposits are held in a dedicated deposit account (Toss Bank, holder: Jeongseung Lee) for Ouro Labs (in formation) and will be transferred to the company account upon incorporation. Deposits not refunded are kept as a penalty for not completing. Refunds are made within 14 days after the final session (Jan 24).<br>보증금은 설립 예정인 아우로랩스의 보증금 전용 계좌(토스뱅크, 예금주 이정승)에 보관되며, 법인 설립 후 법인 계좌로 이관됩니다. 반환하지 않는 보증금은 미수료 위약금으로 처리합니다. 반환은 마지막 회차(1/24) 후 14일 이내에 합니다.</p>
+      <p class="policy__note"><span class="bi"><span class="l-en">Deposits are held in a dedicated deposit account (Toss Bank, holder: Jeongseung Lee) for Ouro Labs (in formation) and will be transferred to the company account upon incorporation. Deposits not refunded are kept as a penalty for not completing. Refunds are made within 14 days after the final session (Jan 24).</span><span class="l-ko">보증금은 설립 예정인 아우로랩스의 보증금 전용 계좌(토스뱅크, 예금주 이정승)에 보관되며, 법인 설립 후 법인 계좌로 이관됩니다. 반환하지 않는 보증금은 미수료 위약금으로 처리합니다. 반환은 마지막 회차(1/24) 후 14일 이내에 합니다.</span></span></p>
     </section>
 
     <section class="policy global" id="global">
       <p class="kicker">Global Cohort · 2027</p>
-      <p class="policy__lead"><b>Not in Seoul?</b> Cohort 01 meets in person in Seoul. Our first global online cohort opens in 2027, with hubs in Korea, Japan and the US. Join the waitlist and we will invite you first.<br>서울 밖에 계신가요? 1기는 서울에서 오프라인으로 진행합니다. 2027년에는 한국·일본·미국 거점과 함께 첫 글로벌 온라인 기수를 엽니다. 대기 명단에 남겨 주시면 가장 먼저 초대합니다.</p>
+      <p class="policy__lead"><span class="bi"><span class="l-en"><b>Not in Seoul?</b> Cohort 01 meets in person in Seoul. Our first global online cohort opens in 2027, with hubs in Korea, Japan and the US. Join the waitlist and we will invite you first.</span><span class="l-ko">서울 밖에 계신가요? 1기는 서울에서 오프라인으로 진행합니다. 2027년에는 한국·일본·미국 거점과 함께 첫 글로벌 온라인 기수를 엽니다. 대기 명단에 남겨 주시면 가장 먼저 초대합니다.</span></span></p>
       <form class="form form--global" id="globalForm" novalidate>
         <div class="form__row">
           <label><span>Name <i>*</i></span><input name="name" required maxlength="60" autocomplete="name"></label>
@@ -103,7 +104,7 @@
           <label><span>Country · City</span><input name="country" maxlength="80" placeholder="e.g. Tokyo, Japan"></label>
           <label><span>Role · Company</span><input name="role" maxlength="160" placeholder="e.g. COO, Acme Logistics"></label>
         </div>
-        <label><span>What would you bring to AI? · AI로 풀고 싶은 일</span><input name="interest" maxlength="600"></label>
+        <label><span><span class="bi"><span class="l-en">What would you bring to AI?</span><span class="l-ko">AI로 풀고 싶은 일</span></span></span><input name="interest" maxlength="600"></label>
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form__foot"><button class="btn btn--w" type="submit">Join the global waitlist <span aria-hidden="true">→</span></button><p class="form__msg" id="globalMsg" role="status" aria-live="polite"></p></div>
       </form>
@@ -115,7 +116,7 @@
 
 <footer class="ft"><div class="wrap"><span>© OOO Seed · Ouroboros</span><a href="/" target="_blank" rel="noopener">OURO LABS</a></div></footer>
 
-<script src="app.js?v=11" defer></script>
+<script src="app.js?v=12" defer></script>
 </body>
 </html>
 
