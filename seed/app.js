@@ -18,7 +18,7 @@ const API='https://script.google.com/macros/s/AKfycbxga8Z1FE1Imqpx3AyUYSIYRLslDV
 const f=document.getElementById('applyForm');
 if(f){f.addEventListener('submit',async e=>{e.preventDefault();const m=document.getElementById('applyMsg');m.className='form__msg';
  let bad=null;f.querySelectorAll('[required]').forEach(el=>{const ok=el.type==='checkbox'?el.checked:(el.type==='email'?/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim()):el.value.trim()!=='');el.setAttribute('aria-invalid',ok?'false':'true');if(!ok&&!bad)bad=el;});
- if(Date.now()>Date.parse('2026-11-09T23:59:59+09:00')){m.textContent='Applications are closed. 신청이 마감되었습니다.';m.classList.add('err');return;}
+ if(Date.now()>Date.parse('2026-11-10T23:59:59+09:00')){m.textContent='Applications are closed. 신청이 마감되었습니다.';m.classList.add('err');return;}
  if(bad){m.textContent='Please check the required fields. 필수 항목을 확인해 주세요.';m.classList.add('err');bad.focus();return;}
  const d=Object.fromEntries(new FormData(f));d.consent=!!f.consent.checked;d.role=[d.level,d.role,d.size].filter(Boolean).join(' · ');d.lang=['참석: '+(d.attend||'-'),d.lang].filter(Boolean).join(' · ');const b=f.querySelector('button');b.disabled=true;m.textContent='Submitting… 접수 중';
  try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)});const j=await r.json();
