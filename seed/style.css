@@ -339,3 +339,5 @@ html[data-lang=both] .cur__tracks small .bi>.l-en,html[data-lang=both] .cur__tra
 
 .what__meta{margin-top:12px;font-size:var(--t-small);color:var(--dim);letter-spacing:.01em}
 .hero__meta b .bi>.l-ko{font-size:.85em}
+
+.ans a,.apply__note a{color:var(--fg);text-decoration:underline;text-underline-offset:.18em}
