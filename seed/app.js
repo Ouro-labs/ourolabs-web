@@ -40,3 +40,14 @@ if(g){g.addEventListener('submit',async e=>{e.preventDefault();const m=document.
 
 const cp=document.getElementById('carPrev'),cn=document.getElementById('carNext'),cc=document.getElementById('car');
 if(cp&&cc){const step=()=>{const c=cc.querySelector('.story');return c?c.getBoundingClientRect().width+20:300};cp.onclick=()=>cc.scrollBy({left:-step(),behavior:'smooth'});cn.onclick=()=>cc.scrollBy({left:step(),behavior:'smooth'});}
+
+// The server is the authority for admissions, including later operator reopenings.
+if(f){
+ f.style.display='none';
+ const notice=document.createElement('div');notice.className='done';notice.setAttribute('role','status');notice.textContent='접수 상태 확인 중 · Checking admissions';f.before(notice);
+ fetch(API+'?action=admissions_status').then(r=>r.json()).then(j=>{
+  if(!j.ok)throw Error('status');
+  if(j.open){notice.remove();f.style.display='';return;}
+  notice.innerHTML='<h3><span class="bi"><span class="l-ko">1기 모집 마감</span><span class="l-en">Applications closed</span></span></h3><p><span class="bi"><span class="l-ko">신청 접수가 마감되었습니다. 참가 확정 멤버는 아래 Luma 캘린더에서 참석할 회차를 신청해 주세요.</span><span class="l-en">Applications are closed. Confirmed members can RSVP through the Luma calendar.</span></span></p><a class="btn" href="https://luma.com/ouroboros-ai" target="_blank" rel="noopener">Luma calendar ↗</a>';
+ }).catch(()=>{notice.textContent='접수 상태를 확인하지 못했습니다. 잠시 후 새로고침해 주세요. Admissions status is unavailable; please refresh.';});
+}
