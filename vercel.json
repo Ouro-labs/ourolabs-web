@@ -1,1 +1,15 @@
-{"cleanUrls": true, "redirects": [{"source": "/seed", "destination": "/seed/", "permanent": false}]}
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/seed",
+      "destination": "/seed/",
+      "permanent": false
+    },
+    {
+      "source": "/downloads",
+      "destination": "/downloads/",
+      "permanent": false
+    }
+  ]
+}
